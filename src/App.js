@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
+import User from './components/User';
 import './App.css';
 
 var config = {
@@ -32,24 +33,26 @@ class App extends Component {
       this.setState({ messageId: message })
     }
 
-    setUser(user) {
-      if(user) {
-        this.setState({ user: user.displayName });
-      } else {
-        this.setState({ user: "Guest" });
-      }
-
-    }
 
     setActiveRoom(room) {
       this.setState({ activeRoom: room })
     }
 
+    setUser(user) {
+
+      this.setState({ user: user })
+
+    }
+
   render() {
     return (
-      <div className="app">
+      <div className="App">
         <h1 className="chat-header">Bloc Chat</h1>
-
+        <User
+         firebase={ firebase }
+         user={this.state.user}
+         setUser={(user) => this.setUser(user)}
+         />
         <RoomList
           firebase={ firebase }
           setActiveRoom={ this.setActiveRoom }

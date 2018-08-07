@@ -45,7 +45,7 @@ class MessageList extends Component {
 
      handleChange(e) {
       this.setState({
-        username: this.props.user,
+        username: this.props.username,
         content: e.target.value,
         sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
         roomId: this.props.activeRoom.key
