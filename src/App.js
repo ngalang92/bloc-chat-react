@@ -47,7 +47,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1 className="chat-header">Bloc Chat</h1>
+        <h1 className="chat-header">Fireside Chat </h1>
         <User
          firebase={ firebase }
          user={this.state.user}
